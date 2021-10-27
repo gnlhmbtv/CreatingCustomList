@@ -53,6 +53,10 @@ namespace CreatingCustomList
         {
             Array.Resize(ref arr, arr.Length + 10);
         }
-        
+        public void Clear()
+        {
+            arr = new T[10];
+            Count = 0;
+        }
     }
 }

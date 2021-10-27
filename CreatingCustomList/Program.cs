@@ -12,9 +12,6 @@ namespace CreatingCustomList
             list.Add("Gnl2");
             list.Add("Gnl3");
             list.Add("Gnl4");
-            
-            
-
         }
     }
 }
