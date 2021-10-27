@@ -58,5 +58,24 @@ namespace CreatingCustomList
             arr = new T[10];
             Count = 0;
         }
+        public void AddRange(IEnumerable<T> list)
+        {
+            foreach (var item in list)
+            {
+                Add(item);
+            }
+        }
+        public T Find(Predicate<T> func)
+        {
+            foreach (var item in arr)
+            {
+                if (func(item))
+                {
+                    return item;
+                }
+            }
+            return default;
+        }
+       
     }
 }
