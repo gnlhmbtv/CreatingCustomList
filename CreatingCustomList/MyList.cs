@@ -4,40 +4,55 @@ using System.Text;
 
 namespace CreatingCustomList
 {
-    class MyList
+    public class MyList<T>
     {
-        private MyType[] types;
-        public MyList(int size)
+        private T[] arr;
+        public static int Count { get; set; }
+        public MyList()
         {
-            types = new MyType[size=10];
+
+            arr = new T[10];
         }
-        public MyType this[int index]
+        //public MyType this[int index]
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            return types[index];
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //            return types[0];
+        //        }
+        //    }
+        //    set
+        //    {
+        //        try
+        //        {
+        //            types[index] = value;
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //            Console.WriteLine("Out of range");
+        //        }
+        //    }
+        //}
+        public void Add(T obj)
         {
-            get
+            if (Count % 10 == 0) 
             {
-                try
-                {
-                    return types[index];
-                }
-                catch (Exception)
-                {
-
-                    return types[0];
-                }
+                ArrayResize();
             }
-            set
-            {
-                try
-                {
-                    types[index] = value;
-                }
-                catch (Exception)
-                {
-
-                    Console.WriteLine("Out of range");
-                }
-            }
+            arr[Count] = obj;
+            Count++;
         }
-        public int Count { get; set; }
+        private void ArrayResize()
+        {
+            Array.Resize(ref arr, arr.Length + 10);
+        }
+        
     }
 }
