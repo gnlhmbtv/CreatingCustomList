@@ -76,6 +76,16 @@ namespace CreatingCustomList
             }
             return default;
         }
-       
+        public bool Contains(T obj)
+        {
+            foreach (var item in arr)
+            {
+                if (Comparer<T>.Default.Compare(item, obj) == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
